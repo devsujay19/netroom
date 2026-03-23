@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetRoom — Room-Based Messenger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-view" class="view-container">
+        <h1 class="brand-title">[ NETROOM ]</h1>
+        <p class="subtitle">Enter a shared IP address to join the same room</p>
+        
+        <div class="input-block">
+            <label>USERNAME</label>
+            <input type="text" id="username-input" autocomplete="off">
+        </div>
+        
+        <div class="input-block">
+            <label>IP ADDRESS (ROOM CODE)</label>
+            <p class="helper-text">Anyone who enters the same IP will share this room</p>
+            <input type="text" id="room-input" autocomplete="off">
+        </div>
+        
+        <button id="connect-btn" class="primary-btn">CONNECT</button>
+    </div>
+
+    <!-- CHAT SCREEN -->
+    <div id="chat-view" class="view-container hidden">
+        
+        <!-- Top Navigation -->
+        <div class="chat-nav">
+            <div class="nav-left">
+                <span class="brand-text">[NETROOM] ROOM — <span id="online-count">1 online</span> MEMBERS</span>
+            </div>
+            <div class="nav-right">
+                <button id="leave-btn" class="icon-btn">← Leave Room</button>
+                <button class="icon-btn">☰</button>
+            </div>
+        </div>
+
+        <!-- Sub Navigation -->
+        <div class="room-header">
+            <span class="room-id">ROOM // <span id="room-display">—</span></span>
+            <button id="clear-btn" class="icon-btn">🗑 Clear</button>
+        </div>
+
+        <!-- Message Area -->
+        <div id="chat-messages" class="chat-box">
+            <div class="system-msg">— Start of conversation —</div>
+        </div>
+
+        <!-- Input Area -->
+        <form id="chat-form" class="input-area">
+            <input type="text" id="msg-input" autocomplete="off" required>
+            <button type="submit" class="action-btn">↩</button>
+            <button type="button" id="close-btn" class="action-btn">✕</button>
+        </form>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
